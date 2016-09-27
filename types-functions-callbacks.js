@@ -9,8 +9,8 @@
 
 // Write a function called addOne() that returns the input number, plus one.
 var addOne = function (num) {
-	return num + 1;
-};
+	return num + 1
+}
 console.assert(addOne(1) === 2)
 
 // Part 0
@@ -18,8 +18,8 @@ console.assert(addOne(1) === 2)
 // Fix the following code so that the assertion passes.
 
 var doubleNum = function(num) {
-	return num * 2;
-};
+	return num * 2
+}
 
 console.assert(doubleNum(5) === 10)
 
@@ -57,10 +57,10 @@ console.assert(average(100,200) === 150)
  inputs is not a number, it will return "null."
  */
  var sum = function (x,y) {
-	 if (isNaN(x) || isNaN(y) === true) {
-		 return null
+	 if (typeof(x) === "number" && typeof(y) === "number") {
+		 return (x + y)
 	 } else {
-			return (x + y)
+			return null
 		}
  }
 
@@ -74,10 +74,10 @@ console.assert(sum(true, 5) === null);
 // Write a function called isNegative that will tell
 // whether a number is negative or not.
 var isNegative = function (x) {
-	if (x >= 0) {
-		return false
-	} else {
+	if (x < 0 === true) {
 		return true
+	} else {
+		return false
 	}
 }
 console.assert(isNegative(10) === false)
@@ -94,9 +94,9 @@ var sum = function (x,y) {
 		return null
 	} else if (isNegative(x) || isNegative(y) == true) {
 		return null
-	} 	else {
-			return (x + y)
-	  	}
+	} else {
+		return (x + y)
+	}
 }
 console.assert(sum(5,-5) === null)
 
@@ -128,8 +128,8 @@ console.assert(minimum(1000,-2,99,50) === -2)
 // Using logical operators, write a function that will
 // return true if either input is a string, but not
 // both or neither.
-var eitherString = function (x,y) {
-	if (typeof(x) == "string" && typeof(y) == "string") {
+var justOneString = function (x,y) {
+	if (typeof(x) === "string" && typeof(y) === "string") {
 		return false
 	} else if (typeof(x) !== "string" && typeof(y) !== "string") {
 		return false
@@ -161,6 +161,11 @@ var incrementGlobalNumber = function(){
 var doubleGlobalNumber = function() {
 	NUMBER = NUMBER * 2
 }
+var doTwice = function(arg1) {
+	arg1();
+	arg1();
+	return NUMBER;
+}
 
 doTwice(incrementGlobalNumber)
 console.assert(NUMBER === 12)
@@ -176,7 +181,13 @@ console.assert(NUMBER === 48)
 // "YES." Otherwise, it will does nothing.
 
 var ORACLE = 'NO'
+var conditionallyInvoke = function(arg1){
+	if (ORACLE == 'YES') {
+		arg1();
+	} else {
 
+	}
+}
 conditionallyInvoke(doubleGlobalNumber)
 console.assert(NUMBER === 48)
 
